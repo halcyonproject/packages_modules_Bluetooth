@@ -937,7 +937,7 @@ public class A2dpService extends ConnectableProfile {
         // the Bluetooth stack can only disable the audio session and need to ask audioManager to
         // restart the session even if feeding parameter are the same. (sameAudioFeedingParameters
         // is left unused until there)
-        if (isActiveDevice(device)) {
+        if (mA2dpOffloadEnabled && isActiveDevice(device)) {
             mAudioManager.handleBluetoothActiveDeviceChanged(
                     device, device, BluetoothProfileConnectionInfo.createA2dpInfo(false, -1));
         }
